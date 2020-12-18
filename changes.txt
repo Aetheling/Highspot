@@ -1,0 +1,20 @@
+# File format
+# A line starting with a # character is a comment and ignored
+# There are 3 basic operations: (A)dd a playlist; (U)pdate a playlist, or (R)emove a playlist -- case sensitive!
+# The first character on a (non-comment) line should give the operation: (A)add, (U)pdate, or (R)emove.  Followed by a " (no space after it).  Not really needed; just makes things more user-readable
+# Add: " -delineated list.  ( " chosen as its use in the input file as a delimeter means it won't appear as part of a title, name, etc.)
+#      User name first, followed by any number of artist, song title pairs.  Any number that is at least 1, that is.
+# Update: user name " playlist ID " artist " song title
+#         Adds the song to the playlist.  Specs say existing song, but I see no (other) reason to restrict it to that -- creating a new playlist doesn't insist all the songs be existing ones
+# Remove: user name " playlist ID
+#         Removes the playlist from the database
+# WARNING: the code is unforgiving of bad formatting.
+# Every line should end with a carriage return! ('\n')
+A"Herbert Lom"The Who"song 1"The Who"song 2"Camila Cabello"Never Be the Same"Camila Cabello"Always Be the Same
+U"Galenos Neville"2"Camila Cabello"Always Be the Same
+R"Ryo Daiki"3
+U"Dipika Crescentia"2"Camila Cabello"Never Be the Same
+U"Dipika Crescentia"2"The Who"song 1
+U"Dipika Crescentia"72"The Who"song 1
+R"Seyyit Nedim"3
+U"Dipika Crescentia"72"The Who"song 3
